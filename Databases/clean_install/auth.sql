@@ -2,7 +2,7 @@
 --
 -- Host: localhost    Database: realmd
 -- ------------------------------------------------------
--- Server version	5.0.45-Debian_1ubuntu3.1-log
+-- Server version    5.0.45-Debian_1ubuntu3.1-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -60,8 +60,8 @@ CREATE TABLE `account` (
   `locked` tinyint(3) unsigned NOT NULL default '0',
   `last_login` timestamp NOT NULL default '0000-00-00 00:00:00',
   `online` tinyint(4) NOT NULL default '0',
-  `expansion` tinyint(3) unsigned NOT NULL default '3',
-  `mutetime` bigint(40) unsigned NOT NULL default '0',
+  `expansion` tinyint(3) unsigned NOT NULL default '2',
+  `mutetime` bigint(40) NOT NULL default '0',
   `locale` tinyint(3) unsigned NOT NULL default '0',
   `recruiter` int(11) NOT NULL default '0',
   PRIMARY KEY  (`id`),
@@ -139,10 +139,9 @@ DROP TABLE IF EXISTS `logs`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `logs` (
-  `time` int(11) unsigned NOT NULL,
-  `realm` int(11) unsigned NOT NULL,
-  `type` varchar(32) NOT NULL,
-  `level` tinyint(3) NOT NULL DEFAULT 0,
+  `time` int(14) NOT NULL,
+  `realm` int(4) NOT NULL,
+  `type` int(4) NOT NULL,
   `string` text
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -198,7 +197,7 @@ CREATE TABLE `realmlist` (
   `timezone` tinyint(3) unsigned NOT NULL default '0',
   `allowedSecurityLevel` tinyint(3) unsigned NOT NULL default '0',
   `population` float unsigned NOT NULL default '0',
-  `gamebuild` int(11) unsigned NOT NULL default '14480',
+  `gamebuild` int(11) unsigned NOT NULL default '12340',
   PRIMARY KEY  (`id`),
   UNIQUE KEY `idx_name` (`name`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Realm System';
@@ -211,7 +210,7 @@ CREATE TABLE `realmlist` (
 LOCK TABLES `realmlist` WRITE;
 /*!40000 ALTER TABLE `realmlist` DISABLE KEYS */;
 INSERT INTO `realmlist` (`id`,`name`,`address`,`port`,`icon`,`color`,`timezone`,`allowedSecurityLevel`,`population`,`gamebuild`) VALUES
-(1,'Trillium','127.0.0.1',8085,1,0,1,0,0,14480);
+(1,'ChaosCore','127.0.0.1',8085,1,0,1,0,0,12340);
 /*!40000 ALTER TABLE `realmlist` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,7 +227,7 @@ CREATE TABLE `uptime` (
   `startstring` varchar(64) NOT NULL default '',
   `uptime` bigint(20) unsigned NOT NULL default '0',
   `maxplayers` smallint(5) unsigned NOT NULL default '0',
-  `revision` VARCHAR(255) NOT NULL DEFAULT 'Trilliumcore',
+  `revision` VARCHAR(255) NOT NULL DEFAULT 'Trinitycore',
   PRIMARY KEY  (`realmid`,`starttime`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 ROW_FORMAT=DYNAMIC COMMENT='Uptime system';
 /*!40101 SET character_set_client = @saved_cs_client */;
