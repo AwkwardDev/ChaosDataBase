@@ -68,7 +68,7 @@ echo #                          #
 echo ############################
 
 
-%mysql%\mysql -q -s -h %svr% --user=%user% --password=%pass% --port=%port% %wdb% < Databases\clean_install\worldv2.sql
+%mysql%\mysql -q -s -h %svr% --user=%user% --password=%pass% --port=%port% %wdb% < Databases\clean_install\worldv3.sql
 
 
 
